@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include "include/parser.h"
+#include "include/process.h"
 
 int main()
 {
     char *line;
     char **tokens;
-    int i;
 
     printf("=====================================\n");
-    printf("ShellForge Version 3.0\n");
+    printf("ShellForge Version 4.0\n");
     printf("=====================================\n");
 
     while (1)
@@ -39,11 +39,9 @@ int main()
 
         tokens = parse_line(line);
 
-        printf("\nParsed Tokens\n");
-
-        for (i = 0; tokens[i] != NULL; i++)
+        if (tokens != NULL && tokens[0] != NULL)
         {
-            printf("argv[%d] = %s\n", i, tokens[i]);
+            execute(tokens);
         }
 
         free_tokens(tokens);

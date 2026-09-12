@@ -6,8 +6,8 @@ CFLAGS = -Wall -Wextra -g
 prog1: prog1.c
 	$(CC) $(CFLAGS) -o prog1 prog1.c
 
-shellforge: shellforge.c parser.c
-	$(CC) $(CFLAGS) -Iinclude -o shellforge shellforge.c parser.c
+shellforge: shellforge.c parser.c execute.c
+	$(CC) $(CFLAGS) -Iinclude -o shellforge shellforge.c parser.c execute.c
 
 all: prog1 shellforge
 
@@ -16,5 +16,4 @@ run:
 
 clean:
 	rm -f prog1 shellforge
-
 
